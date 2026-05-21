@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Đọc sách - Không Gian Văn Hóa Hồ Chí Minh</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* CSS để khung PDF nằm gọn trong Layout */
+        .reader-content { 
+            max-width: 1000px; 
+            margin: 40px auto; 
+            background: rgba(255,255,255,0.9); 
+            padding: 20px; 
+            border-radius: 20px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .pdf-frame { 
+            width: 100%; 
+            height: 80vh; /* Chiều cao chiếm 80% màn hình */
+            border: none; 
+            border-radius: 15px; 
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-container">
+            <div class="brand">
+                <img src="images/TTCU.jpg" alt="Logo" class="logo-img">
+                <h1 class="brand-title">KHÔNG GIAN VĂN HÓA HỒ CHÍ MINH</h1>
+            </div>
+            <nav class="main-nav">
+                <ul class="nav-links">
+                    <li class="nav-item"><a href="index.html">Trang chủ</a></li>
+                    <li class="nav-item"><a href="cuoc-doi.html">Cuộc đời sự nghiệp</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="reader-content">
+            <a href="index.html#sach" style="display:block; margin-bottom:15px; font-weight:bold; color:var(--primary-red);">← Quay lại</a>
+            
+            <iframe id="pdf-viewer" class="pdf-frame" src=""></iframe>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-bottom">
+            <p>&copy; 2026 Bản quyền thuộc về Dự án Không Gian Văn Hóa Hồ Chí Minh.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Lấy tên file từ link (ví dụ: doc-sach.html?file=bup-sen-xanh.pdf)
+        const params = new URLSearchParams(window.location.search);
+        const fileName = params.get('file');
+        // Trỏ đúng vào folder chứa PDF của bạn
+        if(fileName) {
+            document.getElementById('pdf-viewer').src = "documents/" + fileName;
+        }
+    </script>
+</body>
+</html>
