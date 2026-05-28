@@ -9,6 +9,70 @@
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="~/images/favicon.ico" />
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS RESPONSIVE (TƯƠNG THÍCH ĐIỆN THOẠI & LAPTOP) -->
+    <style>
+        /* Đảm bảo hình ảnh không bị tràn khung */
+        img { max-width: 100%; height: auto; }
+        
+        /* Hệ thống Grid linh hoạt */
+        .quote-grid, .cards-grid, .song-list, .footer-grid, .gallery-grid {
+            display: grid;
+            gap: 20px;
+        }
+
+        /* --- MÀN HÌNH LAPTOP VỪA & TABLET (Max-width: 992px) --- */
+        @media (max-width: 992px) {
+            .header-container { flex-direction: column; text-align: center; padding: 15px; }
+            .brand { justify-content: center; margin-bottom: 15px; }
+            .nav-links { flex-wrap: wrap; justify-content: center; gap: 15px; }
+            
+            /* Fix menu thả xuống khi trên màn nhỏ */
+            .dropdown-menu { position: static; display: none; background: #fff; box-shadow: none; width: 100%; text-align: center; }
+            .dropdown:hover .dropdown-menu { display: block; }
+            
+            /* Chia 2 cột cho các phần tử */
+            .quote-grid { grid-template-columns: repeat(2, 1fr); }
+            .cards-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); }
+            .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        /* --- MÀN HÌNH ĐIỆN THOẠI (Max-width: 768px) --- */
+        @media (max-width: 768px) {
+            /* Cấu trúc lại Header & Menu */
+            .nav-links { flex-direction: column; width: 100%; padding: 0; }
+            .nav-item { width: 100%; text-align: center; padding: 10px 0; border-bottom: 1px solid rgba(0,0,0,0.05); }
+            .nav-item:last-child { border-bottom: none; }
+            
+            /* Thu nhỏ kích thước chữ tiêu đề */
+            .hero-title { font-size: 1.8rem !important; }
+            .section-title { font-size: 1.5rem !important; }
+            
+            /* Chuyển tất cả Grid về 1 cột */
+            .quote-grid, .cards-grid, .footer-grid, .song-list { grid-template-columns: 1fr; }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-grid { text-align: center; }
+            
+            /* Cấu trúc lại Timeline (Hành trình) trên di động */
+            .v-timeline { display: flex; flex-direction: column; }
+            .v-timeline-item { flex-direction: column !important; text-align: center; padding-bottom: 30px; }
+            .v-timeline-content.text-box, .v-timeline-content.image-box { width: 100% !important; margin: 10px 0; }
+            .v-timeline-dot { display: none; } /* Ẩn chấm tròn để tránh lệch khung */
+            
+            /* Điều chỉnh kích thước thẻ Sách & Modal nghe nhạc */
+            .work-card img { height: 260px !important; }
+            .modal-content { width: 95%; margin: 20px auto; padding: 15px; }
+        }
+
+        /* --- ĐIỆN THOẠI NHỎ (Max-width: 480px) --- */
+        @media (max-width: 480px) {
+            .hero-title { font-size: 1.5rem !important; }
+            .gallery-grid { grid-template-columns: 1fr; }
+            .work-card img { height: 220px !important; }
+            .brand-title { font-size: 1.2rem; }
+        }
+    </style>
 </head>
 <body>
 
@@ -277,30 +341,31 @@
                         <div class="card-content text-center">
                             <h4>Búp Sen Xanh</h4>
                             <p>Tiểu thuyết lịch sử của nhà văn Sơn Tùng, viết về tuổi thơ và thời thanh niên của Bác Hồ.</p>
-<a href="doc-sach.html?file=bupsenxanh.pdf" class="btn-primary">Đọc Sách</a>                        </div>
+                            <a href="doc-sach.html?embed=https://heyzine.com/flip-book/c362c37489.html" class="btn-primary" style="padding: 10px 25px; font-size: 13px;">Đọc Sách</a>
+                        </div>
                     </div>
                     <div class="work-card" data-aos="fade-up" data-aos-delay="200">
                         <img src="images/motcotcach.jpg" alt="Sach 2" style="width: 100%; height: 320px; object-fit: cover;">
                        <div class="card-content text-center">
-    <h4>Hồ Chí Minh - Một Cốt Cách Văn Hóa Việt Nam</h4>
-    <p>Tác phẩm của tác giả Lê Đình Cúc, khắc họa vẻ đẹp nhân cách, tâm hồn và chiều sâu văn hóa Việt Nam kết tinh trong con người Bác.</p>
-    <a href="doc-sach.html?file=motcotcachvanhoavietnam.pdf" class="btn-primary" style="padding: 10px 25px; font-size: 13px;">Đọc Sách</a>
-</div>
+                            <h4>Hồ Chí Minh - Một Cốt Cách Văn Hóa Việt Nam</h4>
+                            <p>Tác phẩm của tác giả Lê Đình Cúc, khắc họa vẻ đẹp nhân cách, tâm hồn và chiều sâu văn hóa Việt Nam kết tinh trong con người Bác.</p>
+                            <a href="doc-sach.html?embed=https://heyzine.com/flip-book/a8d8c9f4d1.html" class="btn-primary" style="padding: 10px 25px; font-size: 13px;">Đọc Sách</a>
+                        </div>
                     </div>
                     <div class="work-card" data-aos="fade-up" data-aos-delay="300">
                         <img src="images/loibacday.jpg" alt="Sach 3" style="width: 100%; height: 320px; object-fit: cover;">
                         <div class="card-content text-center">
                             <h4>Bác Hồ Với Thanh Niên</h4>
                             <p>Tuyển tập những bức thư, bài nói chuyện của Bác dặn dò thế hệ thanh niên Việt Nam.</p>
-                            <a href="doc-sach.html?file=loibacday.pdf" class="btn-primary" style="padding: 10px 25px; font-size: 13px;">Đọc Sách</a>
+                            <a href="doc-sach.html?embed=https://heyzine.com/flip-book/db6c932c9f.html" class="btn-primary" style="padding: 10px 25px; font-size: 13px;">Đọc Sách</a>
                         </div>
                     </div>
                     <div class="work-card" data-aos="fade-up" data-aos-delay="400">
-                        <img src="images/q.jpg" alt="Sach 4" style="width: 100%; height: 320px; object-fit: cover;">
+                        <img src="images/Suotdoi.png" alt="Sach 4" style="width: 100%; height: 320px; object-fit: cover;">
                         <div class="card-content text-center">
                             <h4>Suốt Đời Học Bác</h4>
                             <p>Cuốn sách tập hợp những mẩu chuyện cảm động về tấm gương đạo đức Hồ Chí Minh.</p>
-                            <a href="doc-sach.html?file=suotdoihocbac.pdf" class="btn-primary" style="padding: 10px 25px; font-size: 13px;">Đọc Sách</a>
+                            <a href="doc-sach.html?embed=https://heyzine.com/flip-book/143ecb223a.html" class="btn-primary" style="padding: 10px 25px; font-size: 13px;">Đọc Sách</a>
                         </div>
                     </div>
                 </div>
@@ -380,22 +445,24 @@
         </section>
 
     </main>
-<div id="music-modal" class="modal-overlay">
-            <div class="modal-content">
-                <span class="close-modal" onclick="closeSong()">×</span>
-                <h2 id="modal-title" style="color: var(--primary-red); font-family: 'Playfair Display', serif; margin-bottom: 5px;">Tên bài hát</h2>
-                <p id="modal-composer" style="color: var(--text-gray); font-style: italic; margin-bottom: 20px;">Sáng tác: ...</p>
-                
-                <div style="position: relative; padding-bottom: 56.25%; height: 0; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
-                    <iframe id="modal-video" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                </div>
 
-                <h4 style="margin-top: 25px; color: var(--text-dark); border-bottom: 2px solid var(--gold); padding-bottom: 10px; display: inline-block;"></h4>
-                <div id="modal-lyrics" class="lyrics-box">
-                    Lời bài hát sẽ hiển thị ở đây...
-                </div>
+    <div id="music-modal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeSong()">×</span>
+            <h2 id="modal-title" style="color: var(--primary-red); font-family: 'Playfair Display', serif; margin-bottom: 5px;">Tên bài hát</h2>
+            <p id="modal-composer" style="color: var(--text-gray); font-style: italic; margin-bottom: 20px;">Sáng tác: ...</p>
+            
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
+                <iframe id="modal-video" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+
+            <h4 style="margin-top: 25px; color: var(--text-dark); border-bottom: 2px solid var(--gold); padding-bottom: 10px; display: inline-block;"></h4>
+            <div id="modal-lyrics" class="lyrics-box">
+                Lời bài hát sẽ hiển thị ở đây...
             </div>
         </div>
+    </div>
+
     <footer class="main-footer">
         <div class="footer-grid">
             <div class="footer-col">
