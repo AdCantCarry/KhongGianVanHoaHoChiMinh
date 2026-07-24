@@ -2,83 +2,143 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Chi Tiết Tác Phẩm - KGVH HCM</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tác Phẩm Nhật Ký Trong Tù - KGVH HCM</title>
+    <meta name="description" content="Chi tiết tập thơ Nhật ký trong tù (1942-1943) của Chủ tịch Hồ Chí Minh.">
+    
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
     <link rel="stylesheet" href="style.css">
+    
+    <style>
+        .article-main-container {
+            max-width: 950px;
+            margin: 40px auto;
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            padding: 50px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-glass);
+            box-shadow: var(--shadow-medium);
+        }
+        .cover-image {
+            width: 100%;
+            max-width: 440px;
+            margin: 25px auto;
+            display: block;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-soft);
+            border: 2px solid var(--gold);
+        }
+        @media (max-width: 768px) {
+            .article-main-container { padding: 24px; }
+        }
+    </style>
 </head>
 <body>
 
+    <div id="scroll-progress"></div>
+    <button id="back-to-top" title="Trở về đầu trang">↑</button>
+
     <header class="main-header">
         <div class="header-container">
-            <div class="brand">
+            <a href="index.html" class="brand">
                 <img src="images/TTCU.jpg" alt="Logo" class="logo-img">
                 <h1 class="brand-title">KHÔNG GIAN VĂN HÓA HỒ CHÍ MINH</h1>
-            </div>
+            </a>
+            
             <nav class="main-nav">
                 <ul class="nav-links">
                     <li class="nav-item"><a href="index.html">Trang chủ</a></li>
                     <li class="nav-item"><a href="cuoc-doi.html">Cuộc đời sự nghiệp</a></li>
+                    <li class="nav-item"><a href="index.html#tac-pham" class="active-link">Tác phẩm vĩ đại</a></li>
                 </ul>
             </nav>
+
+            <div class="header-actions">
+                <button class="search-trigger-btn" id="search-btn-header">
+                    🔍 <span>Tìm kiếm</span>
+                    <span class="search-shortcut-badge">Ctrl K</span>
+                </button>
+                <button class="theme-toggle-btn" id="theme-toggle">
+                    🌙 <span>Tối</span>
+                </button>
+                <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Mở Menu">☰</button>
+            </div>
         </div>
     </header>
 
+    <div class="drawer-backdrop" id="drawer-backdrop"></div>
+    <div class="mobile-drawer" id="mobile-drawer">
+        <div class="mobile-drawer-header">
+            <h3 style="color: var(--primary-red); font-family: var(--font-heading); font-size: 18px;">MENU CHÍNH</h3>
+            <button class="mobile-drawer-close" id="mobile-drawer-close">×</button>
+        </div>
+        <ul class="mobile-nav-links">
+            <li><a href="index.html">Trang chủ</a></li>
+            <li><a href="cuoc-doi.html">Cuộc đời sự nghiệp</a></li>
+            <li><a href="index.html#tac-pham">Những tác phẩm vĩ đại</a></li>
+        </ul>
+    </div>
+
     <main class="container">
-        <article class="article-main-container" data-aos="fade-up" style="max-width: 900px; margin: 50px auto; background: rgba(255,255,255,0.85); padding: 50px; border-radius: 30px; box-shadow: 0 15px 40px rgba(0,0,0,0.1);">
-            <a href="index.html#tac-pham" style="color:var(--primary-red); font-weight:bold; text-decoration:none;">← Về danh sách</a>
+        <article class="article-main-container" data-aos="fade-up">
+            <a href="index.html#tac-pham" class="btn-text" style="margin-bottom: 20px; display: inline-flex;">← Quay về danh sách tác phẩm</a>
             
-            <div class="text-center">
-                <h1 style="color:var(--primary-red); font-size: 38px; margin: 20px 0;">Nhật ký trong tù</h1>
-                                    <p style="font-style: italic; color: #666; font-size: 18px;">Tác giả: Nguyễn Ái Quốc</p>
-                <img src="images/nhatky.jpg" class="cover-image" style="width:100%; max-width:400px; border-radius:20px; box-shadow:0 10px 20px rgba(0,0,0,0.2);">
+            <div class="text-center" style="margin-top: 15px;">
+                <span class="badge">Sáng tác: 1942 - 1943</span>
+                <h1 class="article-title" style="font-size: 38px; color: var(--primary-red); font-family: var(--font-heading); margin: 15px 0;">Nhật Ký Trong Tù</h1>
+                <p style="font-style: italic; color: var(--text-gray); font-size: 18px;">Tác giả: Hồ Chí Minh</p>
+                
+                <img src="images/nhatky.jpg" alt="Tập thơ Nhật ký trong tù" class="cover-image">
+                <div class="title-line center-line"></div>
             </div>
             
-            <div class="article-content" style="font-family: Arial, sans-serif; color: #333; line-height: 1.8; max-width: 800px; margin: 30px auto; padding: 20px;">
-    
-    <!-- Đường kẻ ngang màu đỏ -->
-    <div style="width: 50px; height: 3px; background-color: #d32f2f; margin: 0 auto 30px auto;"></div>
+            <div class="article-content" style="font-size: 17px; line-height: 1.85; color: var(--text-dark);">
+                <p><strong>"Nhật ký trong tù"</strong> (Ngục trung nhật ký) là tập thơ bằng chữ Hán gồm 134 bài, được Chủ tịch Hồ Chí Minh sáng tác trong khoảng thời gian bị giam cầm tại các nhà tù của chính quyền Tưởng Giới Thạch (Trung Quốc) từ tháng 8/1942 đến tháng 9/1943. Đây là một kiệt tác văn học, kết tinh vẻ đẹp tâm hồn và nhân cách cao thượng của người chiến sĩ cộng sản.</p>
+                
+                <h3 style="color: var(--primary-red); margin: 30px 0 15px 0; font-family: var(--font-heading); font-size: 24px;">Bức tranh tâm hồn cao đẹp</h3>
+                <p>Tập thơ không chỉ là tiếng lòng của một người tù bị đày đọa, mà còn là bức tranh sống động về chế độ nhà tù tàn bạo. Qua đó, ta thấy được phong thái ung dung, tinh thần lạc quan cách mạng và tình yêu thiên nhiên mãnh liệt của Người ngay trong hoàn cảnh ngặt nghèo nhất.</p>
 
-    <p style="margin-bottom: 20px; font-size: 18px;">
-        <strong>"Nhật ký trong tù"</strong> (Ngục trung nhật ký) là tập thơ bằng chữ Hán gồm 134 bài, được Chủ tịch Hồ Chí Minh sáng tác trong khoảng thời gian bị giam cầm tại các nhà tù của chính quyền Tưởng Giới Thạch (Trung Quốc) từ tháng 8/1942 đến tháng 9/1943. Đây là một kiệt tác văn học, kết tinh vẻ đẹp tâm hồn và nhân cách cao thượng của người chiến sĩ cộng sản.
-    </p>
+                <blockquote class="quote-card" style="margin: 30px 0;">
+                    "Thân thể ở trong lao,<br>
+                    Tinh thần ở ngoài lao.<br>
+                    Muốn nên sự nghiệp lớn,<br>
+                    Tinh thần phải càng cao."
+                </blockquote>
 
-    <!-- Tiêu đề nhấn mạnh màu đỏ -->
-    <h3 style="color: #d32f2f; font-weight: bold; margin: 30px 0 15px 0;">Bức tranh tâm hồn cao đẹp</h3>
+                <p>Tác phẩm là sự kết hợp hài hòa giữa "chất thép" của một chiến sĩ kiên cường và "chất tình" của một nhà nhân văn vĩ đại.</p>
+            </div>
 
-    <p style="margin-bottom: 20px; font-size: 18px;">
-        Tập thơ không chỉ là tiếng lòng của một người tù bị đày đọa, mà còn là bức tranh sống động về chế độ nhà tù tàn bạo. Qua đó, ta thấy được phong thái ung dung, tinh thần lạc quan cách mạng và tình yêu thiên nhiên mãnh liệt của Người ngay trong hoàn cảnh ngặt nghèo nhất.
-    </p>
-
-    <!-- Khung trích dẫn (Blockquote) -->
-    <blockquote style="border-left: 4px solid #d32f2f; margin: 30px 0; padding-left: 20px; font-style: italic; color: #444; font-size: 18px; line-height: 1.6;">
-        "Thân thể ở trong lao,<br>
-        Tinh thần ở ngoài lao.<br>
-        Muốn nên sự nghiệp lớn,<br>
-        Tinh thần phải càng cao."
-    </blockquote>
-
-    <p style="margin-bottom: 20px; font-size: 18px;">
-        Tác phẩm là sự kết hợp hài hòa giữa "chất thép" của một chiến sĩ kiên cường và "chất tình" của một nhà nhân văn vĩ đại. Từng vần thơ là bằng chứng sống động cho nghị lực phi thường, niềm tin sắt đá vào ngày chiến thắng của cách mạng, cũng như lòng yêu thương bao la dành cho con người và nhân loại.
-    </p>
-</div>
-
-            <div style="margin-top: 50px; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
-                <iframe width="100%" height="450" src="https://www.youtube.com/embed/12NIkBlm_Bg" frameborder="0" allowfullscreen></iframe>
+            <div class="video-section text-center" style="margin-top: 50px; padding-top: 35px; border-top: 1px solid var(--border-glass);">
+                <h3 class="section-title" style="font-size: 26px; margin-bottom: 25px;">Tư liệu Video về Tác phẩm</h3>
+                <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: var(--radius-md); box-shadow: var(--shadow-medium);">
+                    <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="https://www.youtube.com/embed/12NIkBlm_Bg" allowfullscreen></iframe>
+                </div>
             </div>
         </article>
     </main>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <!-- Global Search Palette Modal -->
+    <div id="search-modal" class="modal-overlay">
+        <div class="modal-content search-modal-content">
+            <span class="close-modal" id="close-search-modal">×</span>
+            <h3 style="color: var(--primary-red); font-family: var(--font-heading); margin-bottom: 15px;">TÌM KIẾM TƯ LIỆU</h3>
+            <div class="search-input-wrapper">
+                <span class="search-icon-inside">🔍</span>
+                <input type="text" id="search-input" placeholder="Nhập từ khóa tìm kiếm..." autocomplete="off">
+            </div>
+            <div id="search-results-list" class="search-results-list"></div>
+        </div>
+    </div>
+
     <footer class="main-footer">
-        <div class="footer-bottom" style="text-align: center; padding: 20px; color: white;">
+        <div class="footer-bottom">
             <p>&copy; 2026 Bản quyền thuộc về Dự án Không Gian Văn Hóa Hồ Chí Minh.</p>
         </div>
     </footer>
-    <script>
-        AOS.init({ once: false, mirror: true });
-        // Hiệu ứng Anime.js cho ảnh bìa xuất hiện từ từ
-        anime({ targets: '.cover-image', opacity: [0, 1], scale: [0.9, 1], duration: 1500 });
-    </script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

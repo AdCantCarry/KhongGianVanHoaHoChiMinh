@@ -2,80 +2,140 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Chi Tiết Tác Phẩm - KGVH HCM</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lời Kêu Gọi Toàn Quốc Kháng Chiến - KGVH HCM</title>
+    <meta name="description" content="Chi tiết tác phẩm Lời kêu gọi toàn quốc kháng chiến (1946) của Chủ tịch Hồ Chí Minh.">
+    
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
     <link rel="stylesheet" href="style.css">
+    
+    <style>
+        .article-main-container {
+            max-width: 950px;
+            margin: 40px auto;
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            padding: 50px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-glass);
+            box-shadow: var(--shadow-medium);
+        }
+        .cover-image {
+            width: 100%;
+            max-width: 440px;
+            margin: 25px auto;
+            display: block;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-soft);
+            border: 2px solid var(--gold);
+        }
+        @media (max-width: 768px) {
+            .article-main-container { padding: 24px; }
+        }
+    </style>
 </head>
 <body>
 
+    <div id="scroll-progress"></div>
+    <button id="back-to-top" title="Trở về đầu trang">↑</button>
+
     <header class="main-header">
         <div class="header-container">
-            <div class="brand">
+            <a href="index.html" class="brand">
                 <img src="images/TTCU.jpg" alt="Logo" class="logo-img">
                 <h1 class="brand-title">KHÔNG GIAN VĂN HÓA HỒ CHÍ MINH</h1>
-            </div>
+            </a>
+            
             <nav class="main-nav">
                 <ul class="nav-links">
                     <li class="nav-item"><a href="index.html">Trang chủ</a></li>
                     <li class="nav-item"><a href="cuoc-doi.html">Cuộc đời sự nghiệp</a></li>
+                    <li class="nav-item"><a href="index.html#tac-pham" class="active-link">Tác phẩm vĩ đại</a></li>
                 </ul>
             </nav>
+
+            <div class="header-actions">
+                <button class="search-trigger-btn" id="search-btn-header">
+                    🔍 <span>Tìm kiếm</span>
+                    <span class="search-shortcut-badge">Ctrl K</span>
+                </button>
+                <button class="theme-toggle-btn" id="theme-toggle">
+                    🌙 <span>Tối</span>
+                </button>
+                <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Mở Menu">☰</button>
+            </div>
         </div>
     </header>
 
+    <div class="drawer-backdrop" id="drawer-backdrop"></div>
+    <div class="mobile-drawer" id="mobile-drawer">
+        <div class="mobile-drawer-header">
+            <h3 style="color: var(--primary-red); font-family: var(--font-heading); font-size: 18px;">MENU CHÍNH</h3>
+            <button class="mobile-drawer-close" id="mobile-drawer-close">×</button>
+        </div>
+        <ul class="mobile-nav-links">
+            <li><a href="index.html">Trang chủ</a></li>
+            <li><a href="cuoc-doi.html">Cuộc đời sự nghiệp</a></li>
+            <li><a href="index.html#tac-pham">Những tác phẩm vĩ đại</a></li>
+        </ul>
+    </div>
+
     <main class="container">
-        <article class="article-main-container" data-aos="fade-up" style="max-width: 900px; margin: 50px auto; background: rgba(255,255,255,0.85); padding: 50px; border-radius: 30px; box-shadow: 0 15px 40px rgba(0,0,0,0.1);">
-            <a href="index.html#tac-pham" style="color:var(--primary-red); font-weight:bold; text-decoration:none;">← Về danh sách</a>
+        <article class="article-main-container" data-aos="fade-up">
+            <a href="index.html#tac-pham" class="btn-text" style="margin-bottom: 20px; display: inline-flex;">← Quay về danh sách tác phẩm</a>
             
-            <div class="text-center">
-                <h1 style="color:var(--primary-red); font-size: 38px; margin: 20px 0;">Lời kêu gọi toàn quốc kháng chiến</h1>
-                <p style="font-style: italic; color: #666; font-size: 18px;">Tác giả: Nguyễn Ái Quốc</p>
-                <img src="images/loikeugoi.jpg" class="cover-image" style="width:100%; max-width:400px; border-radius:20px; box-shadow:0 10px 20px rgba(0,0,0,0.2);">
+            <div class="text-center" style="margin-top: 15px;">
+                <span class="badge">Xuất bản: Năm 1946</span>
+                <h1 class="article-title" style="font-size: 38px; color: var(--primary-red); font-family: var(--font-heading); margin: 15px 0;">Lời Kêu Gọi Toàn Quốc Kháng Chiến</h1>
+                <p style="font-style: italic; color: var(--text-gray); font-size: 18px;">Tác giả: Chủ tịch Hồ Chí Minh</p>
+                
+                <img src="images/loikeugoi.jpg" alt="Lời kêu gọi toàn quốc kháng chiến" class="cover-image">
+                <div class="title-line center-line"></div>
             </div>
             
-            <div class="article-content" style="font-family: Arial, sans-serif; color: #333; line-height: 1.8; max-width: 800px; margin: 30px auto; padding: 20px;">
-    
-    <!-- Đường kẻ ngang màu đỏ -->
-    <div style="width: 50px; height: 3px; background-color: #d32f2f; margin: 0 auto 30px auto;"></div>
+            <div class="article-content" style="font-size: 17px; line-height: 1.85; color: var(--text-dark);">
+                <p><strong>"Lời kêu gọi toàn quốc kháng chiến"</strong> được Chủ tịch Hồ Chí Minh viết vào ngày 19/12/1946, trong bối cảnh thực dân Pháp bội ước và mở rộng tấn công ra miền Bắc, đe dọa trực tiếp đến độc lập chủ quyền vừa giành được. Đây là một văn kiện lịch sử đanh thép, thể hiện ý chí quyết tâm bảo vệ nền độc lập của toàn thể dân tộc Việt Nam.</p>
+                
+                <h3 style="color: var(--primary-red); margin: 30px 0 15px 0; font-family: var(--font-heading); font-size: 24px;">Sức mạnh của ý chí dân tộc</h3>
+                <p>Văn kiện vạch trần âm mưu xâm lược của thực dân Pháp và khẳng định mong muốn hòa bình của nhân dân ta, nhưng vì độc lập tự do mà chúng ta buộc phải cầm súng. Người đã khơi dậy lòng yêu nước, kêu gọi toàn thể đồng bào từ già, trẻ, gái, trai không phân biệt tôn giáo, đảng phái, cùng nhau đứng lên kháng chiến.</p>
 
-    <p style="margin-bottom: 20px; font-size: 18px;">
-        <strong>"Lời kêu gọi toàn quốc kháng chiến"</strong> được Chủ tịch Hồ Chí Minh viết vào ngày 19/12/1946, trong bối cảnh thực dân Pháp bội ước và mở rộng tấn công ra miền Bắc, đe dọa trực tiếp đến độc lập chủ quyền vừa giành được. Đây là một văn kiện lịch sử đanh thép, thể hiện ý chí quyết tâm bảo vệ nền độc lập của toàn thể dân tộc Việt Nam.
-    </p>
+                <blockquote class="quote-card" style="margin: 30px 0;">
+                    "Hỡi đồng bào toàn quốc! Chúng ta muốn hòa bình, chúng ta phải nhân nhượng. Nhưng chúng ta càng nhân nhượng, thực dân Pháp càng lấn tới... Không! Chúng ta thà hy sinh tất cả, chứ nhất định không chịu mất nước, nhất định không chịu làm nô lệ!"
+                </blockquote>
 
-    <!-- Tiêu đề nhấn mạnh màu đỏ -->
-    <h3 style="color: #d32f2f; font-weight: bold; margin: 30px 0 15px 0;">Sức mạnh của ý chí dân tộc</h3>
+                <p>Lời kêu gọi không chỉ là mệnh lệnh chiến đấu mà còn là bài học về tinh thần tự lực tự cường và lòng tin vào thắng lợi cuối cùng. Văn kiện đã tập hợp toàn dân trong một khối đoàn kết vững chắc.</p>
+            </div>
 
-    <p style="margin-bottom: 20px; font-size: 18px;">
-        Văn kiện vạch trần âm mưu xâm lược của thực dân Pháp và khẳng định mong muốn hòa bình của nhân dân ta, nhưng vì độc lập tự do mà chúng ta buộc phải cầm súng. Người đã khơi dậy lòng yêu nước, kêu gọi toàn thể đồng bào từ già, trẻ, gái, trai không phân biệt tôn giáo, đảng phái, cùng nhau đứng lên kháng chiến.
-    </p>
-
-    <!-- Khung trích dẫn (Blockquote) -->
-    <blockquote style="border-left: 4px solid #d32f2f; margin: 30px 0; padding-left: 20px; font-style: italic; color: #444; font-size: 18px; line-height: 1.6;">
-        "Hỡi đồng bào toàn quốc! Chúng ta muốn hòa bình, chúng ta phải nhân nhượng. Nhưng chúng ta càng nhân nhượng, thực dân Pháp càng lấn tới... Không! Chúng ta thà hy sinh tất cả, chứ nhất định không chịu mất nước, nhất định không chịu làm nô lệ!"
-    </blockquote>
-
-    <p style="margin-bottom: 20px; font-size: 18px;">
-        Lời kêu gọi không chỉ là mệnh lệnh chiến đấu mà còn là bài học về tinh thần tự lực tự cường và lòng tin vào thắng lợi cuối cùng. Văn kiện đã tập hợp toàn dân trong một khối đoàn kết vững chắc, mở đầu cho cuộc kháng chiến trường kỳ chống thực dân Pháp, khẳng định chân lý: không có gì quý hơn độc lập, tự do.
-    </p>
-</div>
-
-            <div style="margin-top: 50px; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
-                <iframe width="100%" height="450" src="https://www.youtube.com/embed/hTwZzSnrxjg" frameborder="0" allowfullscreen></iframe>
+            <div class="video-section text-center" style="margin-top: 50px; padding-top: 35px; border-top: 1px solid var(--border-glass);">
+                <h3 class="section-title" style="font-size: 26px; margin-bottom: 25px;">Tư liệu Video về Tác phẩm</h3>
+                <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: var(--radius-md); box-shadow: var(--shadow-medium);">
+                    <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="https://www.youtube.com/embed/hTwZzSnrxjg" allowfullscreen></iframe>
+                </div>
             </div>
         </article>
     </main>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <!-- Global Search Palette Modal -->
+    <div id="search-modal" class="modal-overlay">
+        <div class="modal-content search-modal-content">
+            <span class="close-modal" id="close-search-modal">×</span>
+            <h3 style="color: var(--primary-red); font-family: var(--font-heading); margin-bottom: 15px;">TÌM KIẾM TƯ LIỆU</h3>
+            <div class="search-input-wrapper">
+                <span class="search-icon-inside">🔍</span>
+                <input type="text" id="search-input" placeholder="Nhập từ khóa tìm kiếm..." autocomplete="off">
+            </div>
+            <div id="search-results-list" class="search-results-list"></div>
+        </div>
+    </div>
+
     <footer class="main-footer">
-        <div class="footer-bottom" style="text-align: center; padding: 20px; color: white;">
+        <div class="footer-bottom">
             <p>&copy; 2026 Bản quyền thuộc về Dự án Không Gian Văn Hóa Hồ Chí Minh.</p>
         </div>
     </footer>
-    <script>
-        AOS.init({ once: false, mirror: true });
-        // Hiệu ứng Anime.js cho ảnh bìa xuất hiện từ từ
-        anime({ targets: '.cover-image', opacity: [0, 1], scale: [0.9, 1], duration: 1500 });
-    </script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
