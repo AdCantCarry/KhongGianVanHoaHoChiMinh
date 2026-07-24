@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đọc Sách Trực Tuyến - Không Gian Văn Hóa Hồ Chí Minh</title>
-    <meta name="description" content="Khung đọc sách flipbook trực tuyến các tác phẩm về Bác Hồ và tư tưởng Hồ Chí Minh.">
-    
+    <meta name="description"
+        content="Khung đọc sách flipbook trực tuyến các tác phẩm về Bác Hồ và tư tưởng Hồ Chí Minh.">
+
     <!-- Open Graph / Facebook Meta Tags -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://adcantcarry.github.io/KhongGianVanHoaHoChiMinh/doc-sach.html">
     <meta property="og:title" content="Đọc Sách Trực Tuyến - Không Gian Văn Hóa Hồ Chí Minh">
     <meta property="og:description" content="Khung đọc sách flipbook trực tuyến các tác phẩm về Bác Hồ và tư tưởng Hồ Chí Minh.">
-    <meta property="og:image" content="https://adcantcarry.github.io/KhongGianVanHoaHoChiMinh/images/TTCU.jpg">
-    
+    <meta property="og:image" content="https://adcantcarry.github.io/KhongGianVanHoaHoChiMinh/images/TTCU1.jpg">
+
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="images/TTCU.ico" />
     <link rel="stylesheet" href="style.css">
-    
+
     <style>
         .reader-container {
             max-width: 1200px;
@@ -28,6 +30,7 @@
             border: 1px solid var(--border-glass);
             box-shadow: var(--shadow-medium);
         }
+
         .pdf-frame {
             width: 100%;
             height: 82vh;
@@ -38,6 +41,7 @@
         }
     </style>
 </head>
+
 <body>
 
     <div id="scroll-progress"></div>
@@ -49,7 +53,7 @@
                 <img src="images/TTCU.jpg" alt="Logo" class="logo-img">
                 <h1 class="brand-title">KHÔNG GIAN VĂN HÓA HỒ CHÍ MINH</h1>
             </a>
-            
+
             <nav class="main-nav">
                 <ul class="nav-links">
                     <li class="nav-item"><a href="index.html">Trang chủ</a></li>
@@ -83,11 +87,13 @@
 
     <main class="container">
         <div class="reader-container">
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; flex-wrap:wrap; gap:10px;">
+            <div
+                style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; flex-wrap:wrap; gap:10px;">
                 <a href="index.html#sach" class="btn-text">← Quay lại danh mục sách</a>
-                <span style="font-weight: bold; color: var(--primary-red); font-family: var(--font-heading);">📖 CHẾ ĐỘ XEM FLIPBOOK TRỰC TUYẾN</span>
+                <span style="font-weight: bold; color: var(--primary-red); font-family: var(--font-heading);">📖 CHẾ ĐỘ
+                    XEM FLIPBOOK TRỰC TUYẾN</span>
             </div>
-            
+
             <iframe id="pdf-viewer" class="pdf-frame" src="" allowfullscreen="true" allow="clipboard-write"></iframe>
         </div>
     </main>
@@ -96,7 +102,8 @@
     <div id="search-modal" class="modal-overlay">
         <div class="modal-content search-modal-content">
             <span class="close-modal" id="close-search-modal">×</span>
-            <h3 style="color: var(--primary-red); font-family: var(--font-heading); margin-bottom: 15px;">TÌM KIẾM TƯ LIỆU</h3>
+            <h3 style="color: var(--primary-red); font-family: var(--font-heading); margin-bottom: 15px;">TÌM KIẾM TƯ
+                LIỆU</h3>
             <div class="search-input-wrapper">
                 <span class="search-icon-inside">🔍</span>
                 <input type="text" id="search-input" placeholder="Nhập từ khóa tìm kiếm..." autocomplete="off">
@@ -125,4 +132,13 @@
         }
     </script>
 </body>
+
+</html> if (embedLink) {
+viewer.src = embedLink;
+} else if (fileName) {
+viewer.src = "documents/" + fileName;
+}
+</script>
+</body>
+
 </html>
